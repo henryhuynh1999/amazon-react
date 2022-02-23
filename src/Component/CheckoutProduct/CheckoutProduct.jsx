@@ -1,7 +1,15 @@
 import React from "react";
 import "./CheckoutProduct.css";
+import { useStateValue } from "../../Hook/StateProvider";
 // import StarIcon from "@mui/icons-material/Star";
 function CheckoutProduct({ id, image, title, price, rating }) {
+  const [{ basket }, dispatch] = useStateValue();
+  const removeFromBasket = () => {
+    dispatch({
+      type: "REMOVE_FROM_BASKET",
+      id: id,
+    });
+  };
   return (
     <div className="checkout-product">
       <img src={image} alt="" className="checkout-product__image" />
@@ -18,7 +26,7 @@ function CheckoutProduct({ id, image, title, price, rating }) {
               <StarIcon className="product__ratingIcon" />
             ))}
         </div> */}
-        <button>Remove from Basket</button>
+        <button onClick={removeFromBasket}>Remove from Basket</button>
       </div>
     </div>
   );
