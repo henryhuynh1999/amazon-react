@@ -1,16 +1,34 @@
 import React from "react";
 import "./Home.css";
 import Product from "../Product/Product";
+import Flickity from "react-flickity-component";
+import "./flickity.css";
 function Home() {
   return (
     <div className="home">
       <div className="home__container">
-        <img
-          className="home__image"
-          src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
-          alt=""
-          srcset=""
-        />
+        <Flickity>
+          <img
+            className="home__image"
+            src="https://m.media-amazon.com/images/I/71HR5czMQ+L._SX3740_.jpg"
+          />
+          <img
+            className="home__image"
+            src="https://m.media-amazon.com/images/I/71hmctScTeL._SX3740_.jpg"
+          />
+          <img
+            className="home__image"
+            src="https://m.media-amazon.com/images/I/71SX2KbAHTL._SX3740_.jpg"
+          />
+          <img
+            className="home__image"
+            src="https://m.media-amazon.com/images/I/71Tfzk2EWkL._SX3740_.jpg"
+          />
+          <img
+            className="home__image"
+            src="https://m.media-amazon.com/images/I/715qY6Y6zCL._SX3740_.jpg"
+          />
+        </Flickity>
         <div className="home__row">
           <Product
             title="The lean startup"

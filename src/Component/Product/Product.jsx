@@ -1,6 +1,6 @@
 import React from "react";
 import "./Product.css";
-// import StarIcon from "@mui/icons-material/Star";
+import StarRateIcon from "@mui/icons-material/StarRate";
 import { useStateValue } from "../../Hook/StateProvider";
 
 function Product({ id, title, image, price, rating }) {
@@ -26,13 +26,13 @@ function Product({ id, title, image, price, rating }) {
           <small>$</small>
           <strong>{price}</strong>
         </p>
-        {/* <div className="product__rating">
+        <div className="product__rating">
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <StarIcon className="product__ratingIcon" />
+              <StarRateIcon className="product__ratingIcon" />
             ))}
-        </div> */}
+        </div>
       </div>
       <img src={image} alt="" />
       <button onClick={addToBasket}>Add to basket</button>
