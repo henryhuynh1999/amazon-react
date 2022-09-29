@@ -1,11 +1,10 @@
 import React from "react";
-import "./Header.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { useStateValue } from "../../Hook/StateProvider";
 import { Link } from "react-router-dom";
+import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import { auth } from "../../firebase";
-
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
   const handleAuthentication = () => {
@@ -15,16 +14,30 @@ function Header() {
   };
 
   return (
-    <div className="header">
+    <div className="header flex">
       <Link to={!user && "/login"}>
         <img
-          className="header__logo"
-          src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+          className="w-30 h-30 "
+          src="https://api.iconify.design/logos:airbrake.svg?color=%23888888"
         />
       </Link>
-      <div className="header__search">
+      <PlaceOutlinedIcon />
+      <div className="flex flex-col ">
+        <span>Deliver to</span>
+        <span>Vietnam</span>
+      </div>
+      <div className="flex bg-red-100">
+        <select id="pet-select">
+          <option value="">All</option>
+          <option value="dog">Dog</option>
+          <option value="cat">Cat</option>
+          <option value="hamster">Hamster</option>
+          <option value="parrot">Parrot</option>
+          <option value="spider">Spider</option>
+          <option value="goldfish">Goldfish</option>
+        </select>
         <input type="text" className="header__searchInput" />
-        <SearchIcon class="header__searchIcon" />
+        <SearchIcon class="w-30 h-30 bg-yellow-400" />
       </div>
       <div className="header__nav">
         <Link to="./login">

@@ -1,5 +1,4 @@
 import React from "react";
-import "./Product.css";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import { useStateValue } from "../../Hook/StateProvider";
 

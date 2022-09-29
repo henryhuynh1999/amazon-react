@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../image/amazon-logo-black.jpeg";
 import { Link, useHistory } from "react-router-dom";
-import "./Login.css";
 import { auth } from "../../firebase";
 function Login() {
   const [email, setEmail] = useState("");
@@ -22,18 +21,7 @@ function Login() {
   };
 
   const register = (event) => {
-    event.preventDefault();
-    //firebase
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((auth) => {
-        console.log(auth);
-        alert("Account created");
-        if (auth) {
-          history.push("/");
-        }
-      })
-      .catch((error) => console.warn(`Can't create account ${error.message}`));
+    alert(event);
   };
   return (
     <div className="login">
@@ -82,9 +70,11 @@ function Login() {
       </div>
       <div className="login-sign">
         <div className="login-sign__title">New to Amazon?</div>
-        <button className="login-sign__btn" onClick={register}>
-          Create your Amazon account
-        </button>
+        <Link to="/register">
+          <button className="login-sign__btn">
+            Create your Amazon account
+          </button>
+        </Link>
       </div>
     </div>
   );
