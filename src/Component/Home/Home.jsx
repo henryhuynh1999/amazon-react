@@ -1,5 +1,4 @@
 import React from "react";
-import "./Home.css";
 import Product from "../Product/Product";
 import Flickity from "react-flickity-component";
 import "./flickity.css";

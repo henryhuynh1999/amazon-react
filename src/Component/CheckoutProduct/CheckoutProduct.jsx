@@ -1,5 +1,4 @@
 import React from "react";
-import "./CheckoutProduct.css";
 import { useStateValue } from "../../Hook/StateProvider";
 // import StarIcon from "@mui/icons-material/Star";
 function CheckoutProduct({ id, image, title, price, rating }) {
