@@ -1,6 +1,5 @@
 import React from "react";
 import { useStateValue } from "../../Hook/StateProvider";
-// import StarIcon from "@mui/icons-material/Star";
 function CheckoutProduct({ id, image, title, price, rating }) {
   const [{ basket }, dispatch] = useStateValue();
   const removeFromBasket = () => {
@@ -18,13 +17,6 @@ function CheckoutProduct({ id, image, title, price, rating }) {
           <small>$</small>
           <strong>{price}</strong>
         </p>
-        {/* <div className="checkout-product__rating">
-          {Array(rating)
-            .fill()
-            .map((_, i) => (
-              <StarIcon className="product__ratingIcon" />
-            ))}
-        </div> */}
         <button onClick={removeFromBasket}>Remove from Basket</button>
       </div>
     </div>

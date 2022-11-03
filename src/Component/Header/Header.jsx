@@ -1,71 +1,84 @@
+import { useState, useRef, useEffect } from "react";
 import React from "react";
-import SearchIcon from "@mui/icons-material/Search";
-import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { useStateValue } from "../../Hook/StateProvider";
+// import Modal from "../Modal/Modal";
+import {
+  AiOutlineCaretDown,
+  AiOutlineHeart,
+  AiOutlineSearch,
+  AiOutlineNotification,
+  AiOutlineShoppingCart,
+} from "react-icons/ai";
 import { Link } from "react-router-dom";
-import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import { auth } from "../../firebase";
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
+  const [showProfile, setShowProfile] = useState(false);
+
   const handleAuthentication = () => {
     if (user) {
       auth.signOut();
     }
   };
-
   return (
-    <div className="header flex">
-      <Link to={!user && "/login"}>
+    <main>
+      <header className="flex h-[60px] w-full bg-[#161D25] items-center text-white">
         <img
-          className="w-30 h-30 "
-          src="https://api.iconify.design/logos:airbrake.svg?color=%23888888"
+          className="w-[100px] ml-4 mt-4 "
+          src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+          alt="Amazon-logo"
         />
-      </Link>
-      <PlaceOutlinedIcon />
-      <div className="flex flex-col ">
-        <span>Deliver to</span>
-        <span>Vietnam</span>
-      </div>
-      <div className="flex bg-red-100">
-        <select id="pet-select">
-          <option value="">All</option>
-          <option value="dog">Dog</option>
-          <option value="cat">Cat</option>
-          <option value="hamster">Hamster</option>
-          <option value="parrot">Parrot</option>
-          <option value="spider">Spider</option>
-          <option value="goldfish">Goldfish</option>
-        </select>
-        <input type="text" className="header__searchInput" />
-        <SearchIcon class="w-30 h-30 bg-yellow-400" />
-      </div>
-      <div className="header__nav">
-        <Link to="./login">
-          <div className="header__option" onClick={handleAuthentication}>
-            <span className="header__optionLineOne">Hello,{user?.email}</span>
-            <span className="header__optionLineTwo">
-              {user ? "Sign Out" : "Sign In"}
-            </span>
+        <div className="ml-[200px] flex items-center text-white ">
+          <input
+            type="text"
+            className="w-[400px] rounded-l-xl bg-[#2D3C4C] border border-gray-400 ring-yellow-500 h-10 outline-light-300 outline-transparent"
+          />
+          <select
+            name="country"
+            id="country"
+            className="h-10 w-auto bg-[#2D3C4C] outline-transparent flex"
+          >
+            <option defaultValue="All Category">All Category</option>
+            <option value="US">United States</option>
+            <option value="CA">Canada</option>
+            <option value="FR">France</option>
+            <option value="DE">Germany</option>
+          </select>
+          <div className="flex items-center justify-center w-10 h-10 bg-yellow-500 rounded-r-xl">
+            <AiOutlineSearch className="w-6 h-6 font-bold text-white" />
           </div>
-        </Link>
-        <div className="header__option">
-          <span className="header__optionLineOne">Returns</span>
-          <span className="header__optionLineTwo">& Orders</span>
         </div>
-        <div className="header__option">
-          <span className="header__optionLineOne">Your</span>
-          <span className="header__optionLineTwo">Prime</span>
-        </div>
-        <Link to="/checkout">
-          <div className="header__optionBasket">
-            <ShoppingBasketIcon />
-            <span className="header__optionLineTwo header__basketCount">
-              {basket?.length}
-            </span>
-          </div>
-        </Link>
-      </div>
-    </div>
+        <ul className="flex items-center justify-center ml-[400px] space-x-10">
+          <li>
+            <AiOutlineHeart />
+          </li>
+          <li className="static relative flex items-center justify-center w-10 h-10 bg-yellow-300 rounded-lg">
+            <AiOutlineShoppingCart className="w-6 h-6 text-slate-900" />
+          </li>
+          <li>
+            <AiOutlineNotification />
+          </li>
+          <li
+            className="relative flex items-center justify-center space-x-2 cursor-pointer"
+            onClick={() => setShowProfile(!showProfile)}
+          >
+            <div className="w-8 h-8 rounded-full bg-red-50"></div>
+            <AiOutlineCaretDown />
+            {showProfile && (
+              <div className="absolute right-0 w-[300px] bg-gray-300 rounded-md shadow-lg top-10">
+                <ul className="w-full px-8 text-gray-600">
+                  <li className="after:bg-gray-200 after:block after:w-full after:h-[1px]">
+                    Hi ! Hiimbomb
+                  </li>
+                  <li>Help</li>
+                  <li>Sign Out</li>
+                </ul>
+              </div>
+            )}
+          </li>
+        </ul>
+      </header>
+    </main>
   );
 }
 

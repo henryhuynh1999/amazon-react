@@ -1,12 +1,12 @@
 import React from "react";
 import Product from "../Product/Product";
-import Flickity from "react-flickity-component";
-import "./flickity.css";
+// import Flickity from "react-flickity-component";
+// import "./flickity.css";
 function Home() {
   return (
     <div className="home">
       <div className="home__container">
-        <Flickity>
+        {/* <Flickity>
           <img
             className="home__image"
             src="https://m.media-amazon.com/images/I/71HR5czMQ+L._SX3740_.jpg"
@@ -27,7 +27,7 @@ function Home() {
             className="home__image"
             src="https://m.media-amazon.com/images/I/715qY6Y6zCL._SX3740_.jpg"
           />
-        </Flickity>
+        </Flickity> */}
         <div className="home__row">
           <Product
             title="The lean startup"
