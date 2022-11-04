@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Nintendo Switch",
+    "rating": 4,
+    "id": 1,
+    "subtitle": "Nintendo",
+    "price": 299.99,
+    "viewer": "21000",
+    "price_after_discount": 200.0,
+    "image": "https://m.media-amazon.com/images/I/51l02S9fYmS._AC_UY327_FMwebp_QL65_.jpg"
+  },
+  {
+    "name": "Nintendo Switch",
+    "rating": 4,
+    "id": 2,
+    "subtitle": "Nintendo",
+    "price": 299.99,
+    "viewer": "21000",
+    "price_after_discount": 200.0,
+    "image": "https://m.media-amazon.com/images/I/51l02S9fYmS._AC_UY327_FMwebp_QL65_.jpg"
+  },
+  {
+    "name": "Nintendo Switch",
+    "rating": 4,
+    "id": 3,
+    "subtitle": "Nintendo",
+    "price": 299.99,
+    "viewer": "21000",
+    "price_after_discount": 200.0,
+    "image": "https://m.media-amazon.com/images/I/51l02S9fYmS._AC_UY327_FMwebp_QL65_.jpg"
+  },
+  {
+    "name": "Nintendo Switch",
+    "rating": 4,
+    "id": 4,
+    "subtitle": "Nintendo",
+    "price": 299.99,
+    "viewer": "21000",
+    "price_after_discount": 200.0,
+    "image": "https://m.media-amazon.com/images/I/51l02S9fYmS._AC_UY327_FMwebp_QL65_.jpg"
+  },
+  {
+    "name": "Nintendo Switch",
+    "rating": 4,
+    "id": 5,
+    "subtitle": "Nintendo",
+    "price": 299.99,
+    "viewer": "21000",
+    "price_after_discount": 200.0,
+    "image": "https://m.media-amazon.com/images/I/51l02S9fYmS._AC_UY327_FMwebp_QL65_.jpg"
+  }
+]

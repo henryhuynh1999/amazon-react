@@ -14,7 +14,15 @@ import { auth } from "../../firebase";
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
   const [showProfile, setShowProfile] = useState(false);
-
+  useEffect(() => {
+    const close = (e) => {
+      setShowProfile(false);
+    };
+    document.addEventListener("click", close);
+    return () => {
+      document.removeEventListener("click", close);
+    };
+  }, []);
   const handleAuthentication = () => {
     if (user) {
       auth.signOut();
@@ -31,7 +39,7 @@ function Header() {
         <div className="ml-[200px] flex items-center text-white ">
           <input
             type="text"
-            className="w-[400px] rounded-l-xl bg-[#2D3C4C] border border-gray-400 ring-yellow-500 h-10 outline-light-300 outline-transparent"
+            className="pl-4 w-[400px] rounded-l-xl bg-[#2D3C4C] border border-gray-400 ring-yellow-500 h-10 outline-light-300 outline-transparent"
           />
           <select
             name="country"
@@ -52,8 +60,16 @@ function Header() {
           <li>
             <AiOutlineHeart />
           </li>
-          <li className="static relative flex items-center justify-center w-10 h-10 bg-yellow-300 rounded-lg">
-            <AiOutlineShoppingCart className="w-6 h-6 text-slate-900" />
+          <li>
+            <Link
+              to="/checkout"
+              className="relative flex items-center justify-center w-10 h-10 bg-yellow-300 rounded-lg"
+            >
+              <AiOutlineShoppingCart className={`w-6 h-6 text-slate-900`} />
+              <span className="absolute -top-2 -right-2 flex items-center justify-center w-5 h-5 text-center text-black bg-white rounded-full text-[10px] delay-150 font-bold">
+                {basket?.length}
+              </span>
+            </Link>
           </li>
           <li>
             <AiOutlineNotification />
@@ -62,7 +78,7 @@ function Header() {
             className="relative flex items-center justify-center space-x-2 cursor-pointer"
             onClick={() => setShowProfile(!showProfile)}
           >
-            <div className="w-8 h-8 rounded-full bg-red-50"></div>
+            <Link to="/login" className="w-8 h-8 rounded-full bg-red-50"></Link>
             <AiOutlineCaretDown />
             {showProfile && (
               <div className="absolute right-0 w-[300px] bg-gray-300 rounded-md shadow-lg top-10">
