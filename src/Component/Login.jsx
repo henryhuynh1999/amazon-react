@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { auth } from "../firebase";
 import { AiOutlineGoogle } from "react-icons/ai";
 import Notify from "./Notify";
+import Remind from "./Remind";
 function Login() {
   const [success, setSuccess] = useState();
   const [email, setEmail] = useState("");
@@ -73,10 +74,12 @@ function Login() {
                   Account
                 </label>
                 <input
-                  className="w-[300px] h-10 rounded-2xl pl-4"
+                  className="w-[300px] h-10 rounded-2xl pl-4 "
                   type="text"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  required
+                  placeholder="name@gmail.com"
                 />
                 <label htmlFor="password" className="text-white">
                   Password
@@ -101,13 +104,14 @@ function Login() {
                     oo<span className="text-green-600">gle</span>
                   </span>
                 </button>
-                <p className="">
+                <p className="text-white">
                   By continuing, you agree to Amazon's
-                  <span className="text-blue-500 underline-blue-500">
-                    Conditions of Use
+                  <span className="text-blue-500 cursor-pointer">
+                    {" "}
+                    Conditions of Use{" "}
                   </span>
                   and{" "}
-                  <span className="text-blue-500 underline-blue-500">
+                  <span className="text-blue-500 cursor-pointer">
                     Privacy Notice.
                   </span>
                 </p>
@@ -134,6 +138,7 @@ function Login() {
           </div>
         </div>
         {renderToast()}
+        <Remind />
       </main>
     </>
   );
