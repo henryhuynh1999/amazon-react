@@ -49,9 +49,9 @@ function Login() {
   const renderToast = () => {
     if (success === undefined) return;
     return success ? (
-      <Notify message="Login success 🎉🎉🎉" type="success" />
+      <Notify message="Success 🎉🎉🎉" color="green" />
     ) : (
-      <Notify message="Login failed 😭😭😭" type="error" />
+      <Notify message="Failed 😭😭😭" color="red" />
     );
   };
 

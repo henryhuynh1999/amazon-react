@@ -1,6 +1,6 @@
 import React from "react";
 import BarLoader from "react-spinners/BarLoader";
-function Notify({ message, type }) {
+function Notify({ message, color }) {
   const override = {
     width: "300px",
   };
@@ -9,17 +9,14 @@ function Notify({ message, type }) {
       <div className="notify">
         <div
           className={`flex items-center justify-center p-6 ${
-            type === "error" ? "bg-red-500" : "bg-green-500"
+            color === "red" ? "bg-red-500" : "bg-green-500"
           } rounded-md`}
         >
           <span className="text-[16px]  text-white ">
             {message || "Loading..."}
           </span>
         </div>
-        <BarLoader
-          color={type === "error" ? "red" : "green"}
-          cssOverride={override}
-        />
+        <BarLoader color={color} cssOverride={override} />
       </div>
     </>
   );

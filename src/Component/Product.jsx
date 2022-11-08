@@ -83,7 +83,7 @@ function Product({
                 }`
           } rounded-full`}
         >
-          {subtitle}
+          {`#${subtitle}`}
         </small>
         <div className="flex items-center space-x-1">
           {data.map((rating) => (

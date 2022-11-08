@@ -12,6 +12,7 @@ module.exports = {
       },
       backgroundColor: {
         secondary: "#161D25",
+        primary: "#F2F2F5",
       },
       container: {},
     },
