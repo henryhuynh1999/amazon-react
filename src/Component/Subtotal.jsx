@@ -5,17 +5,28 @@ import { useStateValue } from "../Hook/StateProvider";
 function Subtotal() {
   const [{ basket }, dispatch] = useStateValue();
   return (
-    <div className="px-8 py-24 button ">
+    <div className="sticky right-0 px-6 py-[100px] top-4 subtotal">
       <CurrencyFormat
         renderText={(value) => (
           <>
             <div className="text-white text-bold">
-              Subtotal ({console.log(value)}): <span>{value}</span>
+              Subtotal ({basket.length}): <span>{value}</span>
             </div>
             <hr />
             <div className="text-white text-bold">
-              Subtotal (0 items): <span>{value}</span>
+              Estimate Shipping <span>30$</span>
             </div>
+            <hr />
+            <div className="flex justify-between space-x-6">
+              <div className="text-[24px] font-bold">Total</div>
+              <div className="flex flex-col ">
+                <div>{value}</div>
+                <div>Additional free and taxes may apply</div>
+              </div>
+            </div>
+            <button className="w-full px-10 py-4 text-white rounded-full bg-secondary">
+              Proceed
+            </button>
           </>
         )}
         decimalScale={2}

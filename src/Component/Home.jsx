@@ -26,11 +26,9 @@ function Home() {
     <AiOutlineHighlight className="w-6 h-6" />,
   ];
   return (
-    <main className="relative flex justify-around bg-primary">
-      <div>
-        <Categories />
-      </div>
-      <div className="my-4">
+    <main className="relative flex justify-between bg-primary">
+      <Categories />
+      <div className="container my-4">
         <div className="bg-gradient-to-r from-blue-500 to-yellow-500 banner w-full h-[200px] rounded-md px-4 py-6 flex flex-col space-y-2">
           <div className="text-white text-[36px] font-extrabold">
             Free Delivery!
@@ -55,10 +53,10 @@ function Home() {
             ))}
           </div>
         </div>
-        <div className="text-gray-700 text-[20px] font-extrabold">
+        <div className="text-gray-700 text-[20px] font-extrabold my-8">
           Hot deals 🔥
         </div>
-        <div className="flex justify-center space-x-6 ">
+        <div className="flex justify-between space-x-6 ">
           {data.map((product) => (
             <Product
               title={product.name}

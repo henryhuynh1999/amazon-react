@@ -14,7 +14,11 @@ module.exports = {
         secondary: "#161D25",
         primary: "#F2F2F5",
       },
-      container: {},
+      colors: {},
+      container: {
+        center: true,
+        padding: "2rem",
+      },
     },
   },
   corePlugins: {

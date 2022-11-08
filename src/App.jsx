@@ -4,10 +4,11 @@ import Header from "./Component/Header";
 import Home from "./Component/Home";
 import Login from "./Component/Login";
 import Checkout from "./Component/Checkout";
-import Register from "./Component/Register";
+import Register from "./Component/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useStateValue } from "./Hook/StateProvider";
 import { auth } from "./firebase";
+import Footer from "./Component/Footer";
 function App() {
   const [{}, dispatch] = useStateValue();
   useEffect(() => {
@@ -43,6 +44,7 @@ function App() {
           <Route path="/">
             <Header />
             <Home />
+            <Footer />
           </Route>
         </Switch>
       </div>

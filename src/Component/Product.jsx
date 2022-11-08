@@ -3,7 +3,6 @@ import { useStateValue } from "../Hook/StateProvider";
 import { useState } from "react";
 import { AiOutlineHeart, AiFillHeart, AiFillStar } from "react-icons/ai";
 import data from "../../data/product.json";
-import ProductDetail from "./ProductDetail";
 function Product({
   id,
   title,
@@ -36,7 +35,7 @@ function Product({
   };
   return (
     <main>
-      <div className="w-[200px] h-[350px] flex justify-center items-center shadow-xl rounded-lg relative">
+      <div className="w-[200px] h-[350px] flex bg-white justify-center items-center shadow-xl rounded-lg relative">
         <img
           src={image}
           alt=""
@@ -104,7 +103,6 @@ function Product({
       >
         Add to basket
       </button>
-      <ProductDetail />
     </main>
   );
 }

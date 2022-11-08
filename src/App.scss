@@ -13,5 +13,7 @@
 .notify {
   @apply w-[300px] h-[50px] absolute top-6 right-[50%] translate-x-[50%];
 }
-.banner {
+.subtotal {
+  z-index: 12;
+  @apply text-white border border-[#2D3C4C] bg-yellow-500 shadow-outline rounded-xl;
 }

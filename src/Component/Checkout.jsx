@@ -9,8 +9,8 @@ function Checkout() {
     setBasketItems(basket);
   }, [basket]);
   return (
-    <div className="container flex justify-between mt-8">
-      <div>
+    <div className="container grid grid-cols-12 mt-8 gap-[32px]">
+      <div className="col-span-8">
         <h2 className="font-extrabold text-yellow-500 text-[46px] flex">
           Shopping Cart <div className=" animate-bounce">🛒</div>
         </h2>
@@ -22,10 +22,13 @@ function Checkout() {
             rating={item.rating}
             price={item.price}
             quantity={item.quantity}
+            subtitle={item.subtitle}
           ></CheckoutProduct>
         ))}
       </div>
-      <Subtotal />
+      <div className="col-span-4">
+        <Subtotal />
+      </div>
     </div>
   );
 }

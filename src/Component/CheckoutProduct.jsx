@@ -1,6 +1,6 @@
 import React from "react";
 import { useStateValue } from "../Hook/StateProvider";
-function CheckoutProduct({ id, image, title, price, rating }) {
+function CheckoutProduct({ id, image, title, price, subtitle, rating }) {
   const [{ basket }, dispatch] = useStateValue();
   const removeFromBasket = () => {
     dispatch({
@@ -9,19 +9,51 @@ function CheckoutProduct({ id, image, title, price, rating }) {
     });
   };
   return (
-    <div className="flex">
-      <div className="w-[200px] h-[150px]">
+    <div className="grid grid-cols-12 gap-[32px] rounded-lg shadow-md p-8">
+      <div className="col-span-3">
         <img src={image} alt="" className="object-cover w-full h-full" />
       </div>
-      <div className="checkout-product__info">
-        <p className="checkout-product__title">{title}</p>
-        <p className="checkout-product__price">
-          <small>$</small>
-          <strong>{price}</strong>
-        </p>
+      <div className="col-span-9 space-y-4">
+        <div className="flex justify-between">
+          <div>
+            <div>{title}</div>
+            <small
+              className={`px-[5px] py-[3px] text-white ${
+                rating === 0
+                  ? "bg-pink-400"
+                  : `${
+                      rating === 1
+                        ? "bg-yellow-400"
+                        : `${
+                            rating === 2
+                              ? "bg-green-400"
+                              : `${
+                                  rating === 3
+                                    ? "bg-blue-400"
+                                    : `${
+                                        rating === 4
+                                          ? "bg-violet-400-400"
+                                          : `${
+                                              rating === 5
+                                                ? "bg-orange-400"
+                                                : ""
+                                            }`
+                                      }`
+                                }`
+                          }`
+                    }`
+              } rounded-full`}
+            >
+              {`#${subtitle}`}
+            </small>
+          </div>
+          <div className="text-[24px] text-primary font-extrabold">
+            ${price}
+          </div>
+        </div>
         <button
           onClick={removeFromBasket}
-          className="w-full p-3 button hover:scale-105 active:bg-yellow-600 active:text-light-50"
+          className="w-[200px] p-3 button hover:scale-105 active:bg-yellow-600 active:text-light-50"
         >
           Remove from Basket
         </button>
