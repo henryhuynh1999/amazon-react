@@ -1,9 +1,9 @@
 import React from "react";
-import { useStateValue } from "../../Hook/StateProvider";
+import { useStateValue } from "../Hook/StateProvider";
 import { useState } from "react";
 import { AiOutlineHeart, AiFillHeart, AiFillStar } from "react-icons/ai";
-import data from "../../../data/product.json";
-
+import data from "../../data/product.json";
+import ProductDetail from "./ProductDetail";
 function Product({
   id,
   title,
@@ -36,20 +36,24 @@ function Product({
     <main>
       <div className="w-[200px] h-[350px] flex justify-center items-center shadow-xl rounded-lg relative">
         <img
-          src="https://m.media-amazon.com/images/I/51f-Cfkk1hL._AC_UY327_FMwebp_QL65_.jpg"
+          src={image}
           alt=""
           className="object-cover opacity-90 hover:opacity-100 hover:delay-150"
         />
         {!activeInterest ? (
-          <AiOutlineHeart
-            onClick={() => setActiveInterest(!activeInterest)}
-            className={`absolute z-10 w-6 h-6 text-gray-400 cursor-pointer top-2 right-2`}
-          />
+          <div className="absolute z-10 p-[3px] bg-white border border-[#2D3C4C] shadow-outline rounded-lg  cursor-pointer top-2 right-2">
+            <AiOutlineHeart
+              onClick={() => setActiveInterest(!activeInterest)}
+              className={`w-6 h-6 text-gray-400`}
+            />
+          </div>
         ) : (
-          <AiFillHeart
-            onClick={() => setActiveInterest(!activeInterest)}
-            className={`absolute z-10 w-6 h-6 fill-yellow-500 cursor-pointer top-2 right-2`}
-          />
+          <div className="absolute z-10 p-[3px] bg-white border border-black rounded-lg shadow-outline cursor-pointer top-2 right-2 animate-bounce-slow">
+            <AiFillHeart
+              onClick={() => setActiveInterest(!activeInterest)}
+              className={`w-6 h-6 fill-yellow-500`}
+            />
+          </div>
         )}
       </div>
       <div>
@@ -57,7 +61,7 @@ function Product({
         <small>{subtitle}</small>
         <div className="flex items-center space-x-1">
           {data.map((rating) => (
-            <AiFillStar className="w-4 h-4 text-yellow-500" />
+            <AiFillStar className="w-4 h-4 text-yellow-500 " />
           ))}
           <p>{viewer}</p>
         </div>
@@ -68,7 +72,13 @@ function Product({
           </p>
         </div>
       </div>
-      <button onClick={addToBasket}>Add to basket</button>
+      <button
+        onClick={addToBasket}
+        className="w-full p-3 button hover:scale-105 active:bg-yellow-600 active:text-light-500"
+      >
+        Add to basket
+      </button>
+      <ProductDetail />
     </main>
   );
 }

@@ -1,44 +1,41 @@
-import React, { useState } from "react";
-import logo from "../../image/amazon-logo-black.jpeg";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { auth } from "../../firebase";
+import { auth } from "../firebase";
 import { AiOutlineGoogle } from "react-icons/ai";
-// import { userAuth } from "../../Hook/AuthContext";
+import Notify from "./Notify";
 function Login() {
+  const [success, setSuccess] = useState();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
-  // const { googleSignIn } = userAuth();
-  // const handleUserSignIn = async () => {
-  //   try {
-  //     await googleSignIn();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
   const signIn = (e) => {
     e.preventDefault();
-
     auth
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
-        history.push("/");
+        setTimeout(() => {
+          setSuccess(true);
+          history.push("/");
+          alert("Login successfully");
+        }, 10000);
       })
-      .catch((error) => alert(error.message));
+      .catch((error) => alert(error));
   };
 
   const register = (e) => {
     e.preventDefault();
-
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
-        // it successfully created a new user with email and password
         if (auth) {
-          history.push("/");
+          setSuccess(false);
+          setTimeout(() => {
+            history.push("/");
+            alert("Register successfully");
+          }, 5000);
         }
       })
-      .catch((error) => alert(error.message));
+      .catch((error) => setSuccess(false));
   };
   return (
     <>
@@ -113,29 +110,12 @@ function Login() {
           <div className="h-screen w-[50%]">
             <img
               src="https://tronhouse.com/assets/data/editor/source/chup%20hinh%20amazon_1.jpg"
-              className="w-full h-full cursor-pointer blur-sm hover:blur-0 hover:delay-75"
+              className="w-full h-full cursor-pointer opacity-90 hover:opacity-100 hover:delay-75"
               alt=""
             />
           </div>
         </div>
-        <div>
-          <div className="w-[300px] h-[50px] absolute top-6 right-[50%] translate-x-[50%] ">
-            <div className="rounded-md flex justify-center items-center p-6  bg-green-500">
-              <span className="text-[16px]  text-white ">
-                You create account successfully 🎉🎉🎉
-              </span>
-            </div>
-            <div className="w-full h-[3px] bg-red-400 rounded-b-xl"></div>
-          </div>
-        </div>
-        <div className="w-[300px] h-[50px] absolute hidden top-6 right-[50%] translate-x-[50%] ">
-          <div className="rounded-md flex justify-center items-center p-6  bg-red-500">
-            <span className="text-[16px]  text-white ">
-              Something wrong !!! 😭😭😭
-            </span>
-          </div>
-          <div className={`h-[3px] bg-green-400 rounded-b-xl`}></div>
-        </div>
+        <Notify success={() => setSuccess(true)} />
       </main>
     </>
   );

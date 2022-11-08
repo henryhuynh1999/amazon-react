@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import "./App.scss";
-import Header from "./Component/Header/Header";
-import Home from "./Component/Home/Home";
-import Login from "./Component/Login/Login";
-import Checkout from "./Component/Checkout/Checkout";
-import Register from "./Component/Register/Register";
+import Header from "./Component/Header";
+import Home from "./Component/Home";
+import Login from "./Component/Login";
+import Checkout from "./Component/Checkout";
+import Register from "./Component/Register";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useStateValue } from "./Hook/StateProvider";
 import { auth } from "./firebase";

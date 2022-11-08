@@ -1,6 +1,6 @@
 import React from "react";
-import Product from "../Product/Product";
-import data from "../../../data/product.json";
+import Product from "./Product";
+import data from "../../data/product.json";
 
 function Home() {
   return (

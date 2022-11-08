@@ -1,52 +1,52 @@
 [
   {
-    "name": "Nintendo Switch",
+    "name": "Clock",
     "rating": 4,
     "id": 1,
-    "subtitle": "Nintendo",
+    "subtitle": "Clock subtitle",
     "price": 299.99,
     "viewer": "21000",
     "price_after_discount": 200.0,
-    "image": "https://m.media-amazon.com/images/I/51l02S9fYmS._AC_UY327_FMwebp_QL65_.jpg"
+    "image": "https://m.media-amazon.com/images/I/51f-Cfkk1hL._AC_UY327_FMwebp_QL65_.jpg"
   },
   {
-    "name": "Nintendo Switch",
+    "name": "Gaming Control",
     "rating": 4,
     "id": 2,
-    "subtitle": "Nintendo",
+    "subtitle": "Gaming Control subtitle",
     "price": 299.99,
     "viewer": "21000",
     "price_after_discount": 200.0,
-    "image": "https://m.media-amazon.com/images/I/51l02S9fYmS._AC_UY327_FMwebp_QL65_.jpg"
+    "image": "https://m.media-amazon.com/images/I/61-PblYntsL._AC_UL480_QL65_.jpg"
   },
   {
-    "name": "Nintendo Switch",
+    "name": "SSD 1TB New Model",
     "rating": 4,
     "id": 3,
-    "subtitle": "Nintendo",
+    "subtitle": "SSD",
     "price": 299.99,
     "viewer": "21000",
     "price_after_discount": 200.0,
-    "image": "https://m.media-amazon.com/images/I/51l02S9fYmS._AC_UY327_FMwebp_QL65_.jpg"
+    "image": "https://m.media-amazon.com/images/I/91RL+MhTWbL._AC_SX679_.jpg"
   },
   {
-    "name": "Nintendo Switch",
+    "name": "Google Pixel 3XL",
     "rating": 4,
     "id": 4,
-    "subtitle": "Nintendo",
+    "subtitle": "Mobile",
     "price": 299.99,
     "viewer": "21000",
     "price_after_discount": 200.0,
     "image": "https://m.media-amazon.com/images/I/51l02S9fYmS._AC_UY327_FMwebp_QL65_.jpg"
   },
   {
-    "name": "Nintendo Switch",
+    "name": "PS5 Fifa",
     "rating": 4,
     "id": 5,
-    "subtitle": "Nintendo",
+    "subtitle": "PS5",
     "price": 299.99,
     "viewer": "21000",
     "price_after_discount": 200.0,
-    "image": "https://m.media-amazon.com/images/I/51l02S9fYmS._AC_UY327_FMwebp_QL65_.jpg"
+    "image": "https://m.media-amazon.com/images/I/61JGKhqxHxL._AC_UL480_QL65_.jpg"
   }
 ]

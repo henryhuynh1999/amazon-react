@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import React from "react";
-import { useStateValue } from "../../Hook/StateProvider";
-// import Modal from "../Modal/Modal";
+import { useStateValue } from "../Hook/StateProvider";
+import data from "../../data/product.json";
+
 import {
   AiOutlineCaretDown,
   AiOutlineHeart,
@@ -10,36 +11,45 @@ import {
   AiOutlineShoppingCart,
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { auth } from "../../firebase";
+import { auth } from "../firebase";
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
+  const [searchTerm, setSearchTerm] = useState("");
   const [showProfile, setShowProfile] = useState(false);
-  useEffect(() => {
-    const close = (e) => {
-      setShowProfile(false);
-    };
-    document.addEventListener("click", close);
-    return () => {
-      document.removeEventListener("click", close);
-    };
-  }, []);
+  const [searchResults, setSearchResults] = useState([]);
+  const handleFilter = (e) => {
+    setSearchTerm(e.target.value);
+  };
   const handleAuthentication = () => {
     if (user) {
       auth.signOut();
     }
   };
+  useEffect(() => {
+    const results = data.filter((item) =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResults(results);
+    return () => {
+      setSearchResults([]);
+    };
+  }, [searchTerm]);
+
   return (
     <main>
       <header className="flex h-[60px] w-full bg-[#161D25] items-center text-white">
-        <img
-          className="w-[100px] ml-4 mt-4 "
-          src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-          alt="Amazon-logo"
-        />
-        <div className="ml-[200px] flex items-center text-white ">
+        <Link to="/">
+          <img
+            className="w-[100px] ml-4 mt-4 "
+            src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+            alt="Amazon-logo"
+          />
+        </Link>
+        <div className="ml-[200px] flex items-center text-white relative">
           <input
             type="text"
             className="pl-4 w-[400px] rounded-l-xl bg-[#2D3C4C] border border-gray-400 ring-yellow-500 h-10 outline-light-300 outline-transparent"
+            onChange={handleFilter}
           />
           <select
             name="country"
@@ -55,15 +65,26 @@ function Header() {
           <div className="flex items-center justify-center w-10 h-10 bg-yellow-500 rounded-r-xl">
             <AiOutlineSearch className="w-6 h-6 font-bold text-white" />
           </div>
+          {/* Search */}
+          {searchTerm && (
+            <ul className="search">
+              {searchResults.map((item) => (
+                <li key={item.id}>
+                  <Link to="/checkout">{item.name}</Link>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-        <ul className="flex items-center justify-center ml-[400px] space-x-10">
-          <li>
-            <AiOutlineHeart />
+        <ul className="flex items-center justify-center ml-[400px] space-x-10 ">
+          <li className="icon-hover">
+            <AiOutlineHeart className={`w-6 h-6 `} />
           </li>
           <li>
             <Link
               to="/checkout"
-              className="relative flex items-center justify-center w-10 h-10 bg-yellow-300 rounded-lg"
+              className={`${basket.length > 0 ? "animate-bounce-slow" : ""}
+              relative flex items-center justify-center w-10 h-10 bg-yellow-300 rounded-lg`}
             >
               <AiOutlineShoppingCart className={`w-6 h-6 text-slate-900`} />
               <span className="absolute -top-2 -right-2 flex items-center justify-center w-5 h-5 text-center text-black bg-white rounded-full text-[10px] delay-150 font-bold">
@@ -71,23 +92,29 @@ function Header() {
               </span>
             </Link>
           </li>
-          <li>
-            <AiOutlineNotification />
+          <li className="icon-hover">
+            <AiOutlineNotification className={`w-6 h-6 hover:bg-light-100`} />
           </li>
           <li
             className="relative flex items-center justify-center space-x-2 cursor-pointer"
             onClick={() => setShowProfile(!showProfile)}
           >
-            <Link to="/login" className="w-8 h-8 rounded-full bg-red-50"></Link>
+            <div className="w-8 h-8 rounded-full bg-red-50"></div>
             <AiOutlineCaretDown />
             {showProfile && (
-              <div className="absolute right-0 w-[300px] bg-gray-300 rounded-md shadow-lg top-10">
+              <div className="absolute right-0 w-[200px] bg-light-400 rounded-md shadow-lg top-10">
                 <ul className="w-full px-8 text-gray-600">
-                  <li className="after:bg-gray-200 after:block after:w-full after:h-[1px]">
-                    Hi ! Hiimbomb
+                  <li className="after:bg-gray-200 after:block after:w-full after:h-[1px] after:mb-2">
+                    {user?.email.split("@")[0]}
                   </li>
                   <li>Help</li>
-                  <li>Sign Out</li>
+                  {user ? (
+                    <li onClick={handleAuthentication}>Sign Out</li>
+                  ) : (
+                    <li>
+                      <Link to="/login">Sign In</Link>
+                    </li>
+                  )}
                 </ul>
               </div>
             )}

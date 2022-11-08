@@ -1,0 +1,10 @@
+.button {
+  @apply text-white border border-[#2D3C4C] bg-yellow-500 shadow-outline rounded-xl;
+}
+.search {
+  z-index: 100;
+  @apply absolute w-[400px] p-3 text-white border border-[#2D3C4C] bg-yellow-500 shadow-outline rounded-b-xl left-0 rounded-t-md top-10;
+}
+.icon-hover {
+  @apply p-2 m-auto cursor-pointer hover:bg-[#4E4F50] rounded-full;
+}
