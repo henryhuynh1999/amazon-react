@@ -1,8 +1,9 @@
 [
   {
     "name": "Clock",
-    "rating": 4,
+    "rating": 0,
     "id": 1,
+    "quantity": 1,
     "subtitle": "Clock subtitle",
     "price": 299.99,
     "viewer": "21000",
@@ -11,8 +12,9 @@
   },
   {
     "name": "Gaming Control",
-    "rating": 4,
+    "rating": 1,
     "id": 2,
+    "quantity": 1,
     "subtitle": "Gaming Control subtitle",
     "price": 299.99,
     "viewer": "21000",
@@ -21,8 +23,9 @@
   },
   {
     "name": "SSD 1TB New Model",
-    "rating": 4,
+    "rating": 2,
     "id": 3,
+    "quantity": 1,
     "subtitle": "SSD",
     "price": 299.99,
     "viewer": "21000",
@@ -31,20 +34,22 @@
   },
   {
     "name": "Google Pixel 3XL",
-    "rating": 4,
+    "rating": 3,
     "id": 4,
     "subtitle": "Mobile",
     "price": 299.99,
+    "quantity": 1,
     "viewer": "21000",
     "price_after_discount": 200.0,
     "image": "https://m.media-amazon.com/images/I/51l02S9fYmS._AC_UY327_FMwebp_QL65_.jpg"
   },
   {
     "name": "PS5 Fifa",
-    "rating": 4,
+    "rating": 5,
     "id": 5,
     "subtitle": "PS5",
     "price": 299.99,
+    "quantity": 1,
     "viewer": "21000",
     "price_after_discount": 200.0,
     "image": "https://m.media-amazon.com/images/I/61JGKhqxHxL._AC_UL480_QL65_.jpg"

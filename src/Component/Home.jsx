@@ -1,10 +1,13 @@
 import React from "react";
 import Product from "./Product";
 import data from "../../data/product.json";
-
+import Categories from "./Categories";
 function Home() {
   return (
-    <main>
+    <main className="relative flex justify-around">
+      <div>
+        <Categories />
+      </div>
       <div className="flex justify-center space-x-6 ">
         {data.map((product) => (
           <Product

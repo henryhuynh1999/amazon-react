@@ -10,10 +10,10 @@ module.exports = {
       boxShadow: {
         outline: "3px 3px 0 0 #2D3C4C",
       },
-      container: {
-        center: true,
-        padding: "10rem",
+      backgroundColor: {
+        secondary: "#161D25",
       },
+      container: {},
     },
   },
   corePlugins: {

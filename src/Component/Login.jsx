@@ -18,7 +18,12 @@ function Login() {
           history.push("/");
         }, 3000);
       })
-      .catch((error) => setSuccess(false));
+      .catch((error) => {
+        setSuccess(false);
+        setTimeout(() => {
+          setSuccess(undefined);
+        }, 3000);
+      });
   };
 
   const register = (e) => {
@@ -33,14 +38,20 @@ function Login() {
           }, 3000);
         }
       })
-      .catch((error) => setSuccess(false));
+      .catch((error) => {
+        setSuccess(false);
+        setTimeout(() => {
+          setSuccess(undefined);
+        }, 3000);
+      });
   };
+
   const renderToast = () => {
     if (success === undefined) return;
     return success ? (
-      <Notify message="Login success" type="success" />
+      <Notify message="Login success 🎉🎉🎉" type="success" />
     ) : (
-      <Notify message="Login failed" type="error" />
+      <Notify message="Login failed 😭😭😭" type="error" />
     );
   };
 

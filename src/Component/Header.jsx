@@ -37,7 +37,7 @@ function Header() {
 
   return (
     <main>
-      <header className="flex h-[60px] w-full bg-[#161D25] items-center text-white">
+      <header className="flex h-[60px] w-full bg-secondary items-center text-white">
         <Link to="/">
           <img
             className="w-[100px] ml-4 mt-4 "

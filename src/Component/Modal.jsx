@@ -1,10 +1,10 @@
 import { useState } from "react";
 import React from "react";
-function Modal() {
+function Modal({ children }) {
   const [showModal, setShowModal] = useState(false);
   return (
     <div>
-      <button onClick={() => setShowModal(!showModal)}>Show Modal</button>
+      <children />
     </div>
   );
 }

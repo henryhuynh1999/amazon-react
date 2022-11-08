@@ -13,6 +13,7 @@ function Product({
   viewer,
   subtitle,
   discount,
+  quantity,
 }) {
   const [activeInterest, setActiveInterest] = useState(false);
   const [{ basket }, dispatch] = useStateValue();
@@ -29,6 +30,7 @@ function Product({
         viewer: viewer,
         discount: discount,
         subtitle: subtitle,
+        quantity: quantity,
       },
     });
   };
@@ -57,8 +59,32 @@ function Product({
         )}
       </div>
       <div>
-        <p className="text-sm font-bold text-gray-500">{title}</p>
-        <small>{subtitle}</small>
+        <p className="text-[16px] font-bold text-gray-500">{title}</p>
+        <small
+          className={`px-[5px] py-[3px] text-white ${
+            rating === 0
+              ? "bg-pink-400"
+              : `${
+                  rating === 1
+                    ? "bg-yellow-400"
+                    : `${
+                        rating === 2
+                          ? "bg-green-400"
+                          : `${
+                              rating === 3
+                                ? "bg-blue-400"
+                                : `${
+                                    rating === 4
+                                      ? "bg-violet-400-400"
+                                      : `${rating === 5 ? "bg-orange-400" : ""}`
+                                  }`
+                            }`
+                      }`
+                }`
+          } rounded-full`}
+        >
+          {subtitle}
+        </small>
         <div className="flex items-center space-x-1">
           {data.map((rating) => (
             <AiFillStar className="w-4 h-4 text-yellow-500 " />

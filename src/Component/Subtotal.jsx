@@ -9,13 +9,13 @@ function Subtotal() {
       <CurrencyFormat
         renderText={(value) => (
           <>
-            <p className="text-white text-bold">
-              Subtotal (0 items): <span>{value}</span>
-            </p>
+            <div className="text-white text-bold">
+              Subtotal ({console.log(value)}): <span>{value}</span>
+            </div>
             <hr />
-            <p className="text-white text-bold">
+            <div className="text-white text-bold">
               Subtotal (0 items): <span>{value}</span>
-            </p>
+            </div>
           </>
         )}
         decimalScale={2}
