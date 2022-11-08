@@ -9,22 +9,20 @@ function Checkout() {
     setBasketItems(basket);
   }, [basket]);
   return (
-    <div className="container ">
+    <div className="container flex justify-between mt-8">
       <div>
-        <div>
-          <h2 className="font-extrabold text-yellow-500 text-[46px] flex p-12">
-            Shopping Cart <div className="animate-bounce">🛒</div>
-          </h2>
-          {basketItems.map((item) => (
-            <CheckoutProduct
-              id={item.id}
-              title={item.title}
-              image={item.image}
-              rating={item.rating}
-              price={item.price}
-            ></CheckoutProduct>
-          ))}
-        </div>
+        <h2 className="font-extrabold text-yellow-500 text-[46px] flex">
+          Shopping Cart <div className=" animate-bounce">🛒</div>
+        </h2>
+        {basketItems.map((item) => (
+          <CheckoutProduct
+            id={item.id}
+            title={item.title}
+            image={item.image}
+            rating={item.rating}
+            price={item.price}
+          ></CheckoutProduct>
+        ))}
       </div>
       <Subtotal />
     </div>

@@ -13,13 +13,12 @@ function Login() {
     auth
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
+        setSuccess(true);
         setTimeout(() => {
-          setSuccess(true);
           history.push("/");
-          alert("Login successfully");
-        }, 10000);
+        }, 3000);
       })
-      .catch((error) => alert(error));
+      .catch((error) => setSuccess(false));
   };
 
   const register = (e) => {
@@ -28,15 +27,23 @@ function Login() {
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
         if (auth) {
-          setSuccess(false);
+          setSuccess(true);
           setTimeout(() => {
             history.push("/");
-            alert("Register successfully");
-          }, 5000);
+          }, 3000);
         }
       })
       .catch((error) => setSuccess(false));
   };
+  const renderToast = () => {
+    if (success === undefined) return;
+    return success ? (
+      <Notify message="Login success" type="success" />
+    ) : (
+      <Notify message="Login failed" type="error" />
+    );
+  };
+
   return (
     <>
       <main>
@@ -115,7 +122,7 @@ function Login() {
             />
           </div>
         </div>
-        <Notify success={() => setSuccess(true)} />
+        {renderToast()}
       </main>
     </>
   );

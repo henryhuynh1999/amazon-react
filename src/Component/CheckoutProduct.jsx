@@ -9,7 +9,7 @@ function CheckoutProduct({ id, image, title, price, rating }) {
     });
   };
   return (
-    <div className="container flex">
+    <div className="flex">
       <div className="w-[200px] h-[150px]">
         <img src={image} alt="" className="object-cover w-full h-full" />
       </div>

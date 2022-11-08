@@ -67,9 +67,12 @@ function Header() {
           </div>
           {/* Search */}
           {searchTerm && (
-            <ul className="search">
+            <ul className="search ">
               {searchResults.map((item) => (
-                <li key={item.id}>
+                <li
+                  key={item.id}
+                  className="p-2 rounded-lg hover:bg-yellow-200 hover:text-gray-700"
+                >
                   <Link to="/checkout">{item.name}</Link>
                 </li>
               ))}
@@ -102,10 +105,12 @@ function Header() {
             <div className="w-8 h-8 rounded-full bg-red-50"></div>
             <AiOutlineCaretDown />
             {showProfile && (
-              <div className="absolute right-0 w-[200px] bg-light-400 rounded-md shadow-lg top-10">
-                <ul className="w-full px-8 text-gray-600">
-                  <li className="after:bg-gray-200 after:block after:w-full after:h-[1px] after:mb-2">
-                    {user?.email.split("@")[0]}
+              <div className="absolute right-2 w-[200px] button top-12">
+                <ul className="w-full px-8 py-4 text-white">
+                  <li className="after:bg-black after:block after:w-full after:h-[1px] after:my-4 text-center text-[16px] ">
+                    {!user
+                      ? "Hi 🎉 ! Guest"
+                      : `Hi ! 🎉 ${user.email.split("@")[0]}`}
                   </li>
                   <li>Help</li>
                   {user ? (

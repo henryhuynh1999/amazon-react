@@ -8,3 +8,7 @@
 .icon-hover {
   @apply p-2 m-auto cursor-pointer hover:bg-[#4E4F50] rounded-full;
 }
+
+.notify {
+  @apply w-[300px] h-[50px] absolute top-6 right-[50%] translate-x-[50%];
+}
