@@ -74,8 +74,8 @@ function Login() {
   return (
     <>
       <main>
-        <div className="relative flex items-center justify-center w-full h-screen ">
-          <div className="h-screen w-[50%] bg-gray-700">
+        <div className="relative flex items-center justify-center w-full h-screen">
+          <div className="h-screen w-[100%] lg:w-[50%] bg-gray-700">
             <div className="flex flex-col items-center justify-center h-full ">
               <Link to="/">
                 <img
@@ -118,6 +118,7 @@ function Login() {
                   Signin
                 </button>
                 <button
+                  type="submit"
                   className="flex items-center text-white justify-center w-full px-4 py-2 mt-4 bg-secondary rounded-xl"
                   onClick={handleSignWithGoogle}
                 >
@@ -139,6 +140,7 @@ function Login() {
                 </p>
                 <Link to="/register">
                   <button
+                    type="submit"
                     className="w-full px-4 py-2 mt-4 text-white bg-yellow-500 rounded-xl"
                     onClick={register}
                   >
@@ -148,7 +150,7 @@ function Login() {
               </div>
             </div>
           </div>
-          <div className="h-screen w-[50%]">
+          <div className="h-screen hidden lg:block lg:w-[50%]">
             <img
               src="https://i0.wp.com/www.3gca.org/wp-content/uploads/2020/06/racist-images.jpg?fit=1200%2C800&ssl=1"
               className="w-full h-full cursor-pointer opacity-90 hover:opacity-100 hover:delay-75"
