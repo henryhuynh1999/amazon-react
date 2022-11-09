@@ -150,7 +150,7 @@ function Login() {
           </div>
           <div className="h-screen w-[50%]">
             <img
-              src="https://tronhouse.com/assets/data/editor/source/chup%20hinh%20amazon_1.jpg"
+              src="https://i0.wp.com/www.3gca.org/wp-content/uploads/2020/06/racist-images.jpg?fit=1200%2C800&ssl=1"
               className="w-full h-full cursor-pointer opacity-90 hover:opacity-100 hover:delay-75"
               alt=""
             />

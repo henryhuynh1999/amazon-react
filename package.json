@@ -12,6 +12,7 @@
     "@emotion/styled": "^11.8.1",
     "@tailwindcss/container-queries": "^0.1.0",
     "firebase": "^7.19.1",
+    "flickity": "^2.3.0",
     "react": "^17.0.0",
     "react-currency-format": "^1.0.0",
     "react-dom": "^17.0.0",

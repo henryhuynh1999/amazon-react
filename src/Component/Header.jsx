@@ -4,7 +4,6 @@ import { useStateValue } from "../Hook/StateProvider";
 import data from "../../data/product.json";
 
 import {
-  AiOutlineCaretDown,
   AiOutlineHeart,
   AiOutlineSearch,
   AiOutlineNotification,
@@ -37,7 +36,7 @@ function Header() {
 
   return (
     <main>
-      <header className="flex h-[60px] w-full bg-secondary items-center text-white">
+      <header className="flex h-[60px] w-full bg-secondary items-center text-white container">
         <Link to="/" className="">
           <img
             className="min-w-[60px] h-[50px] object-contain ml-8 mt-4"
@@ -79,7 +78,7 @@ function Header() {
             </ul>
           )}
         </div>
-        <ul className="flex items-center justify-center ml-[400px] space-x-10 ">
+        <ul className="flex items-center justify-center ml-[400px] space-x-4 ">
           <li className="icon-hover">
             <AiOutlineHeart className={`w-6 h-6 `} />
           </li>
@@ -102,8 +101,7 @@ function Header() {
             className="relative flex items-center justify-center space-x-2 cursor-pointer"
             onClick={() => setShowProfile(!showProfile)}
           >
-            <div className="w-8 h-8 rounded-full bg-red-50"></div>
-            <AiOutlineCaretDown />
+            <div className="w-10 h-10 rounded-full bg-white"></div>
             {showProfile && (
               <div className="absolute right-2 w-[200px] button top-12 animate-wiggle">
                 <ul className="w-full px-8 py-4 text-white">
