@@ -5,9 +5,9 @@
     "id": 1,
     "quantity": 1,
     "subtitle": "Clock subtitle",
-    "price": 299.99,
+    "price": 199.99,
     "viewer": "21000",
-    "price_after_discount": 200.0,
+    "price_after_discount": 150.0,
     "image": "https://m.media-amazon.com/images/I/51f-Cfkk1hL._AC_UY327_FMwebp_QL65_.jpg"
   },
   {
@@ -18,7 +18,7 @@
     "subtitle": "Gaming Control subtitle",
     "price": 299.99,
     "viewer": "21000",
-    "price_after_discount": 200.0,
+    "price_after_discount": 250.0,
     "image": "https://m.media-amazon.com/images/I/61-PblYntsL._AC_UL480_QL65_.jpg"
   },
   {

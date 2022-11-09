@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { auth } from "../firebase";
-import { AiOutlineGoogle } from "react-icons/ai";
+import { auth, google_provider } from "../firebase";
 import Notify from "./Notify";
 import Remind from "./Remind";
+import { FcGoogle } from "react-icons/fc";
 function Login() {
   const [success, setSuccess] = useState();
   const [email, setEmail] = useState("");
@@ -26,7 +26,22 @@ function Login() {
         }, 3000);
       });
   };
-
+  const handleSignWithGoogle = (e) => {
+    auth
+      .signInWithPopup(google_provider)
+      .then((result) => {
+        setSuccess(true);
+        setTimeout(() => {
+          history.push("/");
+        }, 3000);
+      })
+      .catch((error) => {
+        setSuccess(false);
+        setTimeout(() => {
+          setSuccess(undefined);
+        }, 3000);
+      });
+  };
   const register = (e) => {
     e.preventDefault();
     auth
@@ -73,23 +88,27 @@ function Login() {
                 <label className="text-white" htmlFor="account">
                   Account
                 </label>
-                <input
-                  className="w-[300px] h-10 rounded-2xl pl-4 "
-                  type="text"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  placeholder="name@gmail.com"
-                />
+                <div className="relative">
+                  <input
+                    className="w-[300px] h-10 rounded-2xl pl-4 "
+                    type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    placeholder="name@gmail.com"
+                  />
+                </div>
                 <label htmlFor="password" className="text-white">
                   Password
                 </label>
-                <input
-                  type="password"
-                  value={password}
-                  className="w-[300px] h-10 rounded-2xl pl-4"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+                <div className="relative">
+                  <input
+                    type="password"
+                    value={password}
+                    className="w-[300px] h-10 rounded-2xl pl-4"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
               </form>
               <div className="w-[300px] flex space-y-4 flex-col">
                 <button
@@ -98,11 +117,11 @@ function Login() {
                 >
                   Signin
                 </button>
-                <button className="flex items-center justify-center w-full px-4 py-2 mt-4 bg-yellow-500 rounded-xl">
-                  <AiOutlineGoogle className="w-6 h-6 text-blue-800" />
-                  <span className="font-extrabold text-red-600">
-                    oo<span className="text-green-600">gle</span>
-                  </span>
+                <button
+                  className="flex items-center text-white justify-center w-full px-4 py-2 mt-4 bg-secondary rounded-xl"
+                  onClick={handleSignWithGoogle}
+                >
+                  Sigin with Google <FcGoogle className="ml-2 w-4 h-4" />
                 </button>
                 <p className="text-white">
                   By continuing, you agree to Amazon's

@@ -56,7 +56,7 @@ function Home() {
         <div className="text-gray-700 text-[20px] font-extrabold my-8">
           Hot deals 🔥
         </div>
-        <div className="flex justify-between space-x-6 ">
+        <div className="flex justify-between space-x-4">
           {data.map((product) => (
             <Product
               title={product.name}

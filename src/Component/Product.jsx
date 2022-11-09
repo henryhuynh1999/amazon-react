@@ -99,7 +99,7 @@ function Product({
       </div>
       <button
         onClick={addToBasket}
-        className="w-full p-3 button hover:scale-105 active:bg-yellow-600 active:text-light-500"
+        className="w-full p-3 button active:bg-yellow-600 active:text-light-500 hover:animate-btn"
       >
         Add to basket
       </button>

@@ -9,11 +9,11 @@ function CheckoutProduct({ id, image, title, price, subtitle, rating }) {
     });
   };
   return (
-    <div className="grid grid-cols-12 gap-[32px] rounded-lg shadow-md p-8">
-      <div className="col-span-3">
-        <img src={image} alt="" className="object-cover w-full h-full" />
+    <div className="grid grid-cols-12 gap-[32px] rounded-lg shadow-md p-8 bg-primary">
+      <div className="col-span-6">
+        <img src={image} alt="" className="object-cover  rounded-lg" />
       </div>
-      <div className="col-span-9 space-y-4">
+      <div className="col-span-6 space-y-4">
         <div className="flex justify-between">
           <div>
             <div>{title}</div>
@@ -53,7 +53,7 @@ function CheckoutProduct({ id, image, title, price, subtitle, rating }) {
         </div>
         <button
           onClick={removeFromBasket}
-          className="w-[200px] p-3 button hover:scale-105 active:bg-yellow-600 active:text-light-50"
+          className="w-[200px] p-3 button hover:scale-105 active:bg-yellow-600 active:text-light-50 hover:animate-btn"
         >
           Remove from Basket
         </button>

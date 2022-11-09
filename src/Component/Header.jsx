@@ -38,9 +38,9 @@ function Header() {
   return (
     <main>
       <header className="flex h-[60px] w-full bg-secondary items-center text-white">
-        <Link to="/">
+        <Link to="/" className="">
           <img
-            className="w-[100px] ml-4 mt-4 "
+            className="min-w-[60px] h-[50px] object-contain ml-8 mt-4"
             src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
             alt="Amazon-logo"
           />
@@ -105,7 +105,7 @@ function Header() {
             <div className="w-8 h-8 rounded-full bg-red-50"></div>
             <AiOutlineCaretDown />
             {showProfile && (
-              <div className="absolute right-2 w-[200px] button top-12">
+              <div className="absolute right-2 w-[200px] button top-12 animate-wiggle">
                 <ul className="w-full px-8 py-4 text-white">
                   <li className="after:bg-black after:block after:w-full after:h-[1px] after:my-4 text-center text-[16px] ">
                     {!user
@@ -121,6 +121,7 @@ function Header() {
                     </li>
                   )}
                 </ul>
+                <span></span>
               </div>
             )}
           </li>
