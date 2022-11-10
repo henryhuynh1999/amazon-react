@@ -34,33 +34,39 @@ function Product({
     });
   };
   return (
-    <main>
-      <div className="w-[200px] h-[350px] flex bg-white justify-center items-center shadow-xl rounded-lg relative">
-        <img
-          src={image}
-          alt=""
-          className="object-cover opacity-90 hover:opacity-100 hover:delay-150"
-        />
-        {!activeInterest ? (
-          <div className="absolute z-10 p-[3px] bg-white border border-[#2D3C4C] shadow-outline rounded-lg  cursor-pointer top-2 right-2">
-            <AiOutlineHeart
-              onClick={() => setActiveInterest(!activeInterest)}
-              className={`w-6 h-6 text-gray-400`}
-            />
-          </div>
-        ) : (
-          <div className="absolute z-10 p-[3px] bg-white border border-black rounded-lg shadow-outline cursor-pointer top-2 right-2 animate-bounce-slow">
-            <AiFillHeart
-              onClick={() => setActiveInterest(!activeInterest)}
-              className={`w-6 h-6 fill-yellow-500`}
-            />
-          </div>
-        )}
+    <div className="lg:block grid grid-cols-1 md:grid-cols-2 gap-[16px]">
+      <div className="col-span-full lg:w-[200px] lg:h-[350px] lg:flex bg-white justify-center items-center shadow-xl rounded-lg relative">
+        <div className="aspect-[4/3] lg:aspect-none mt-4 lg:mt-0">
+          <img
+            src={image}
+            alt=""
+            className="object-cover opacity-90 hover:opacity-100 hover:delay-150"
+          />
+        </div>
+        <div>
+          {!activeInterest ? (
+            <div className="absolute p-[3px] bg-white border border-[#2D3C4C] shadow-outline rounded-lg  cursor-pointer top-2 right-2">
+              <AiOutlineHeart
+                onClick={() => setActiveInterest(!activeInterest)}
+                className={`w-6 h-6 text-gray-400`}
+              />
+            </div>
+          ) : (
+            <div className="absolute p-[3px] bg-white border border-black rounded-lg shadow-outline cursor-pointer top-2 right-2 animate-bounce-slow">
+              <AiFillHeart
+                onClick={() => setActiveInterest(!activeInterest)}
+                className={`w-6 h-6 fill-yellow-500`}
+              />
+            </div>
+          )}
+        </div>
       </div>
       <div>
-        <p className="text-[16px] font-bold text-gray-500">{title}</p>
+        <p className="text-[12px] md:text-[16px] font-bold text-gray-500">
+          {title}
+        </p>
         <small
-          className={`px-[5px] py-[3px] text-white ${
+          className={`px-[4px] py-[2px] lg:px-[5px] lg:py-[3px] text-white ${
             rating === 0
               ? "bg-pink-400"
               : `${
@@ -85,13 +91,13 @@ function Product({
           {`#${subtitle}`}
         </small>
         <div className="flex items-center space-x-1">
-          {data.map((rating) => (
-            <AiFillStar className="w-4 h-4 text-yellow-500 " />
+          {data.map((rating, index) => (
+            <AiFillStar className="w-4 h-4 text-yellow-500 " key={index} />
           ))}
-          <p>{viewer}</p>
+          <small className="text-gray-400">{`(${viewer} viewer)`}</small>
         </div>
-        <div className="flex items-center space-x-3">
-          <p className="font-bold text-[24px]">${discount}</p>
+        <div className="flex items-center lg:space-x-3 space-x-[3/2]">
+          <p className="font-bold lg:text-[24px] text-[16px]">${discount}</p>
           <p className="text-gray-400">
             <del>${price}</del>
           </p>
@@ -99,11 +105,11 @@ function Product({
       </div>
       <button
         onClick={addToBasket}
-        className="w-full p-3 button active:bg-yellow-600 active:text-light-500 hover:animate-btn"
+        className="w-full lg:p-3 p-[3/2] button active:bg-yellow-600 active:text-light-500 hover:animate-btn"
       >
         Add to basket
       </button>
-    </main>
+    </div>
   );
 }
 

@@ -124,81 +124,70 @@ function Header() {
           )}
         </li>
       </ul>
-      <div class="lg:hidden">
+      <div className="lg:hidden">
         <button
-          class="navbar-burger flex items-center text-blue-600 p-3"
+          className="navbar-burger flex items-center text-blue-600 p-3"
           onClick={() => setShow((prev) => !prev)}
         >
           <svg
-            class="block h-4 w-4 fill-current"
+            className="block h-4 w-4 fill-current"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>Mobile menu</title>
+            <title>Mobile Nav</title>
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
           </svg>
         </button>
         {show && (
-          <div className="fixed top-[60px] h-screen left-0 bg-secondary md:w-[60%] w-full z-50 lg:hidden">
+          <div className="fixed top-[60px] h-screen left-0 bg-secondary md:w-[60%] w-full">
             <ul>
-              <li class="mb-1">
-                <a
-                  class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                  href="#"
-                >
+              <li className="mb-1">
+                <div className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">
                   Pricing
-                </a>
+                </div>
               </li>
-              <li class="mb-1">
-                <a
-                  class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                  href="#"
-                >
+              <li className="mb-1">
+                <div className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">
                   Categories
-                </a>
+                </div>
               </li>
               <li class="mb-1">
-                <a
-                  class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                  href="#"
+                <Link
+                  to="/checkout"
+                  className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
                 >
                   Cart
-                </a>
+                </Link>
               </li>
-              <li class="mb-1">
-                <a
-                  class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                  href="#"
-                >
+              <li className="mb-1">
+                <div className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">
                   Contact
-                </a>
+                </div>
               </li>
             </ul>
-            <div class="mt-auto">
-              <div class="pt-6 px-4">
+            <div className="mt-auto">
+              <div className="pt-6 px-4">
                 <Link
                   to="/login"
-                  class="block px-4 py-3 mb-3 button text-center px-4"
+                  className="block px-4 py-3 mb-3 button text-center px-4"
                 >
                   {user ? (
-                    <li onClick={handleAuthentication}>Sign Out</li>
+                    <div onClick={handleAuthentication}>Sign Out</div>
                   ) : (
-                    <li>
-                      <Link to="/login">Sign In</Link>
-                    </li>
+                    <Link to="/login">Sign In</Link>
                   )}
                 </Link>
                 {!user && (
                   <Link
                     to="/login"
-                    class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl"
+                    className="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl"
                   >
                     With Google
                   </Link>
                 )}
               </div>
-              <p class="my-4 text-xs text-center text-gray-400">
-                <span>Copyright © 2021</span>
+              <p className="my-4 text-xs text-center text-gray-400">
+                <span>🚀🚀🚀</span>
               </p>
             </div>
           </div>

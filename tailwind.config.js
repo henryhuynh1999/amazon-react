@@ -3,6 +3,9 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      aspectRatio: {
+        "4/3": "4 / 3",
+      },
       animation: {
         "bounce-slow": "bounce 2s",
         "ping-slow": "ping .8s",

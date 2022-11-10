@@ -9,11 +9,11 @@ function CheckoutProduct({ id, image, title, price, subtitle, rating }) {
     });
   };
   return (
-    <div className="grid grid-cols-12 gap-[32px] rounded-lg shadow-md p-8 bg-primary">
+    <div className="grid lg:grid-cols-12 grid-cols-1 gap-[32px] rounded-lg shadow-md p-8 bg-primary">
       <div className="col-span-6">
         <img src={image} alt="" className="object-cover  rounded-lg" />
       </div>
-      <div className="col-span-6 space-y-4">
+      <div className="col-span-6 space-y-2 lg:space-y-4">
         <div className="flex justify-between">
           <div>
             <div>{title}</div>
@@ -47,7 +47,8 @@ function CheckoutProduct({ id, image, title, price, subtitle, rating }) {
               {`#${subtitle}`}
             </small>
           </div>
-          <div className="text-[24px] text-primary font-extrabold">
+          <div></div>
+          <div className="text-[16px] lg:text-[24px] text-primary font-extrabold">
             ${price}
           </div>
         </div>

@@ -10,9 +10,9 @@ function Checkout() {
   }, [basket]);
   return (
     <div className="container grid grid-cols-12 mt-8 gap-[32px]">
-      <div className="col-span-8">
+      <div className="md:col-span-8 col-span-full">
         <h2 className="font-extrabold text-yellow-500 text-[46px] flex ">
-          Shopping Cart <div className=" animate-cart">🛒</div>
+          Shopping Cart <div className="animate-none md:animate-cart">🛒</div>
         </h2>
         <div className="flex flex-col space-y-6 mt-4">
           {basketItems.map((item) => (
@@ -28,7 +28,7 @@ function Checkout() {
           ))}
         </div>
       </div>
-      <div className="col-span-4">
+      <div className="md:col-span-4 col-span-full">
         <Subtotal />
       </div>
     </div>

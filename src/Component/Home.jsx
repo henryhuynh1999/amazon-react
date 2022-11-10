@@ -23,14 +23,13 @@ function Home() {
     <AiOutlineDesktop className="w-6 h-6" />,
     <AiOutlineFacebook className="w-6 h-6" />,
     <AiOutlineRead className="w-6 h-6" />,
-    <AiOutlineHighlight className="w-6 h-6" />,
   ];
   return (
     <main className="relative flex justify-between bg-primary">
       <Categories />
       <div className="container my-4">
-        <div className="bg-gradient-to-r from-blue-500 to-yellow-500 banner w-full h-[200px] rounded-md px-4 py-6 flex flex-col space-y-2">
-          <div className="text-white text-[36px] font-extrabold">
+        <div className="bg-gradient-to-r from-blue-500 to-yellow-500 banner w-full h-[200px] rounded-md lg:px-4 lg:py-6 px-2 py-3 flex flex-col lg:space-y-2 space-y-1">
+          <div className="text-white lg:text-[36px] text-[24px] font-extrabold">
             Free Delivery!
           </div>
           <p className="text-white">
@@ -41,22 +40,25 @@ function Home() {
             Browse products
           </button>
         </div>
-        <div className="my-8">
+        <div className="lg:my-8 my-4">
           <div className="text-gray-700 text-[20px] font-extrabold">
             Popular categories ⭐
           </div>
-          <div className="flex my-4 space-x-8 text-gray-400 cursor-pointer ">
-            {categoriesIcon.map((item) => (
-              <div className="inline-flex p-6 bg-white rounded-md shadow-lg ">
+          <div className="lg:flex grid grid-cols-2 md:grid-cols-5 md:gap-[8px] gap-[4px] my-2 space-x-0 space-y-0 lg:space-x-6 lg:space-y-2  text-gray-400 cursor-pointer ">
+            {categoriesIcon.map((item, index) => (
+              <div
+                className="inline-flex lg:p-6 p-3 bg-white rounded-md shadow-lg"
+                key={index}
+              >
                 {item}
               </div>
             ))}
           </div>
         </div>
-        <div className="text-gray-700 text-[20px] font-extrabold my-8">
+        <div className="text-gray-700 text-[20px] font-extrabold lg:my-8 my-5">
           Hot deals 🔥
         </div>
-        <div className="flex justify-between space-x-4">
+        <div className="lg:flex block justify-between lg:space-x-4 space-x-2">
           {data.map((product) => (
             <Product
               title={product.name}
@@ -67,6 +69,7 @@ function Home() {
               viewer={product.viewer}
               id={product.id}
               discount={product.price_after_discount}
+              key={product.id}
             />
           ))}
         </div>

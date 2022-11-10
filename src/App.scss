@@ -1,6 +1,12 @@
 .button {
-  z-index: 100;
+  z-index: 20;
   @apply text-white border border-[#2D3C4C] bg-yellow-500 shadow-outline rounded-xl;
+}
+.navbar-burger {
+  z-index: 30;
+}
+.mobile-nav {
+  z-index: 30;
 }
 .search {
   z-index: 100;

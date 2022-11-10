@@ -2,7 +2,7 @@ import React from "react";
 import BarLoader from "react-spinners/BarLoader";
 function Notify({ message, color }) {
   const override = {
-    width: "300px",
+    width: "297px",
   };
   return (
     <>
