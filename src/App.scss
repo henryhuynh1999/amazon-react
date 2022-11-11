@@ -5,8 +5,12 @@
 .navbar-burger {
   z-index: 30;
 }
+.test {
+  z-index: 100;
+}
 .mobile-nav {
-  z-index: 30;
+  z-index: 100;
+  overflow: hidden;
 }
 .search {
   z-index: 100;
