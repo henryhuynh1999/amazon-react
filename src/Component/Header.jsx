@@ -36,7 +36,7 @@ function Header() {
   }, [searchTerm]);
 
   return (
-    <div className="sticky top-0 overflow-hidden test w-full">
+    <div className="sticky top-0 test w-full">
       <header className="flex justify-between h-[60px] bg-secondary items-center text-white relative">
         <Link to="/" className="">
           <img

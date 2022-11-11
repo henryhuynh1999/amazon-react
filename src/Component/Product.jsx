@@ -96,7 +96,7 @@ function Product({
           ))}
           <small className="text-gray-400">{`(${viewer} viewer)`}</small>
         </div>
-        <div className="flex items-center lg:space-x-3 space-x-[3/2]">
+        <div className="flex items-center lg:space-x-3 space-x-2">
           <p className="font-bold lg:text-[24px] text-[16px]">${discount}</p>
           <p className="text-gray-400">
             <del>${price}</del>
@@ -105,7 +105,7 @@ function Product({
       </div>
       <button
         onClick={addToBasket}
-        className="w-full lg:p-3 p-[3/2] button active:bg-yellow-600 active:text-light-500 hover:animate-btn"
+        className="w-full lg:p-3 p-2 button active:bg-yellow-600 active:text-light-500 hover:animate-btn"
       >
         Add to basket
       </button>
